@@ -9,4 +9,5 @@ Gem::Specification.new do |g|
 
   g.require_path = 'lib'
   g.add_dependency 'redis'
+  g.add_development_dependency 'rspec'
 end
