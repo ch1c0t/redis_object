@@ -12,4 +12,9 @@ describe 'Redis.object' do
   it 'defines a constant R with Redis instance' do
     expect(A::R).to be_a_kind_of Redis
   end
+
+  it 'saves Redis dump' do
+    A::R.bgsave
+    expect(File.exist? "/tmp/ruby.#{$$}/A/dump.rdb").to be_truthy
+  end
 end

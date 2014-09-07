@@ -12,6 +12,9 @@ class Redis
         redis_conf = %!
           port 0
           unixsocket #{path}/redis.sock
+
+          dbfilename dump.rdb
+          dir #{path}
         !
         IO.write "#{path}/redis.conf", redis_conf
 
