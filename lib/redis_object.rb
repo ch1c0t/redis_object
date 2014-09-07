@@ -21,7 +21,7 @@ class Redis
         base.const_set :R, redis_instance
 
         at_exit do
-          %x! kill #{redis_pid} !
+          Process.kill 'TERM', redis_pid
         end
 
         20.times do
