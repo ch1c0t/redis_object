@@ -16,13 +16,10 @@ class Redis
         IO.write "#{path}/redis.conf", redis_conf
 
         redis_pid = fork { exec "redis-server #{path}/redis.conf" }
+        at_exit { Process.kill 'TERM', redis_pid }
 
         redis_instance = Redis.new path: "#{path}/redis.sock"
         base.const_set :R, redis_instance
-
-        at_exit do
-          Process.kill 'TERM', redis_pid
-        end
 
         20.times do
           begin
