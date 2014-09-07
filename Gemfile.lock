@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    redis_object (0.0.0)
+      redis
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    redis (3.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  redis_object!
